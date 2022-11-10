@@ -1,0 +1,19 @@
+Aveti libertatea de a alege din temele de mai jos sau de a propune o tema proprie.
+Pentru a avea aceasi cantitate de munca, chiar si pentru temele propuse de mine va trebui sa va definiti individual modelul si use case-urile.
+
+Pentru o organizare mai buna si mai realistica vom lucra folosind GitHub: https://github.com/
+In caz ca nu aveti cont, creati un cont.
+Creati un repository nou
+Adaugati descrierea proiectului vostru dorit acolo.
+Interfata este destul de intuitiva, iar pentru partea de git va puteti intoarce la tutorialul realizat la inceputul cursului, dar daca aveti nevoie de ajutor: https://docs.github.com/en sau pentru un simplu tutorial de folosire GitHub: https://guides.github.com/activities/hello-world/
+
+Apoi completati formularul de mai jos pentru a avea toate informatiile centralizate.
+Temele saptamanale vor consta in a pushui noi commituri in repositoriul proiectului vostru.
+
+Lista de teme propusa de mine:
+1. Pagina de prezentare personala (CV on web)
+2. Pagina de prezentare a unor produse (ex: pagina digital nation)
+3. E-commerce page
+4. Pagina de prezentare pentru materiale (Wiki, cursuri etc)
+
+Completati toate detaliile aici: https://forms.gle/PVpmijMgGpGcQgwa8
