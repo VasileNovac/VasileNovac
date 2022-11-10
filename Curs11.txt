@@ -5,7 +5,8 @@ Pentru o organizare mai buna si mai realistica vom lucra folosind GitHub: https:
 In caz ca nu aveti cont, creati un cont.
 Creati un repository nou
 Adaugati descrierea proiectului vostru dorit acolo.
-Interfata este destul de intuitiva, iar pentru partea de git va puteti intoarce la tutorialul realizat la inceputul cursului, dar daca aveti nevoie de ajutor: https://docs.github.com/en sau pentru un simplu tutorial de folosire GitHub: https://guides.github.com/activities/hello-world/
+Interfata este destul de intuitiva, iar pentru partea de git va puteti intoarce la tutorialul realizat la inceputul cursului, dar daca aveti nevoie de
+ajutor: https://docs.github.com/en sau pentru un simplu tutorial de folosire GitHub: https://guides.github.com/activities/hello-world/
 
 Apoi completati formularul de mai jos pentru a avea toate informatiile centralizate.
 Temele saptamanale vor consta in a pushui noi commituri in repositoriul proiectului vostru.
