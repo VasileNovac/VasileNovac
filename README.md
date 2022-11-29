@@ -16,6 +16,7 @@ Cuprins:
       - aprobarea acordarii ajutorului social ( VMG ) ;
       - respingerea acordarii ajutorului social ( VMG ) ;
       - suspendarea acordarii ajutorului social ( VMG ) ;
+      - incetarea acordarii ajutorului social ( VMG ) ;
       - reluarea acordarii ajutorului social ( VMG ) ;
   - generarea in format pdf a dispozitiei primarului si tiparirea selectiva a acesteia pe imprimanta ;
   - generarea rapoartelor necesare primariei pentru verificare, statistica, raportare la forurile superioare ;
