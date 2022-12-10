@@ -1,0 +1,25 @@
+@charset "UTF-8";
+body {
+    min-height: 100vh ;
+    display: flex ;
+    flex-direction: column;
+}
+
+table {
+/*	border: 1px solid black ;*/
+  	border-spacing: 10px;
+}
+
+th {
+/*	border: 1px solid black ;*/
+	padding: 10px ;
+	text-align: right ;
+	background-color: #00bbff ;
+}
+
+td {
+/*	border: 1px solid black ;*/
+	padding: 10px ;
+	text-align: left ;
+	background-color: #00ffbb ;
+}
