@@ -158,7 +158,7 @@ public class Familie {
 	
 	@Override
 	public String toString() {
-		return String.format("RL [cnpRL='%d', numeRL='%s', prenumeRL='%s', adresaLoc='%s']", cnpRL, numeRL, prenumeRL, adresaLoc) ;
+		return String.format("RL [cnpRL='%d', numeRL='%s', prenumeRL='%s']", cnpRL, numeRL, prenumeRL) ;
 	}
 
 }

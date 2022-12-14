@@ -3,9 +3,18 @@ package ro.digitalnation.NovacVasile;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.regex.Pattern;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
+
+@Entity
 public class MembriFamilie {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private long id;
 	private String  cnp, nume, prenume ;
 	private String stareCivila, actId, serieActId, nrActId, dataExpActId, dataNastere, cetatenie, situatieScolara, situatieProfesionala, cuDizabilitati, beneficiatAlteDreptSociale ;
 	private int venitTotalUltimaLuna ;
@@ -20,7 +29,7 @@ public class MembriFamilie {
 	public static HashMap<String, String> sexList ;
 	public static HashMap<String, String> categDispozitieList ;
 
-	private boolean ret1, ret2, ret3, ret4, ret5 ;
+	private static boolean ret1, ret2, ret3, ret4, ret5 ;
 
 /*
   	actId: CN - certificat nastere; BI - buletin identitate; CI - carte identitate ; CIP - carte identitate provizorie; P - pasaport; 
@@ -35,7 +44,7 @@ public class MembriFamilie {
 */
 	public MembriFamilie() { }
 
-//constructor pentru MasculinParinte, FemininParinte, AltePersMajore
+//constructor pentru MasculinParinte, FemininParinte, AltaPersMajora
 	
 	public MembriFamilie (String cnp, String nume, String prenume, String actId, String serieActId, String nrActId, String dataExpActId, String stareCivila, String dataNastere, String cetatenie, String situatieScolara, String situatieProfesionala, int venitTotalUltimaLuna, String cuDizabilitati, String beneficiatAlteDreptSociale, String categDreptSociale ) {
 		this.cnp = cnp ;
@@ -79,17 +88,17 @@ public class MembriFamilie {
 	}
 
 //metoda verificare CNP
-	public boolean verifCNP() { 
+	public static boolean verifCNP(String xcnp ) { 
 		// verificare lungime cnp
 		ret1 = false ;
-		if ( cnp.length() == 13 ) {
+		if ( xcnp.length() == 13 ) {
 			ret1 = true ;
 		}
 		
 		// verificare ca toate caracterele cnp sunt numerice
 		ret2 = true ;
-		for ( int j = 0 ; j < cnp.length() ; j++) {
-			if (Pattern.matches("[0-9]", Character.toString(cnp.charAt(j))) && ret2 == true ) { }
+		for ( int j = 0 ; j < xcnp.length() ; j++) {
+			if (Pattern.matches("[0-9]", Character.toString(xcnp.charAt(j))) && ret2 == true ) { }
 			else {
 				ret2 = false ;
 			}
@@ -97,34 +106,34 @@ public class MembriFamilie {
 
 		// verificare ca luna cnp este cuprinsa intre 1 si 12 
 		ret3 = false ;
-		if (Integer.valueOf(Character.toString(cnp.charAt(3)) + Character.toString(cnp.charAt(4))) < 13 && Integer.valueOf(Character.toString(cnp.charAt(3)) + Character.toString(cnp.charAt(4))) > 0 ) {
+		if (Integer.valueOf(Character.toString(xcnp.charAt(3)) + Character.toString(xcnp.charAt(4))) < 13 && Integer.valueOf(Character.toString(xcnp.charAt(3)) + Character.toString(xcnp.charAt(4))) > 0 ) {
 			ret3 = true ;
 		}
 		
 		// verificare ca ziua cnp este cuprinsa intre 1 si 31
 		ret4 = false ;
-		if (Integer.valueOf(Character.toString(cnp.charAt(5)) + Character.toString(cnp.charAt(6))) < 32 && Integer.valueOf(Character.toString(cnp.charAt(5)) + Character.toString(cnp.charAt(6))) > 0 ) {
+		if (Integer.valueOf(Character.toString(xcnp.charAt(5)) + Character.toString(xcnp.charAt(6))) < 32 && Integer.valueOf(Character.toString(xcnp.charAt(5)) + Character.toString(xcnp.charAt(6))) > 0 ) {
 			ret4 = true ;
 		}
 
 		// verificare ca cifra de control cnp este corecta
-		int restCNP = ( 2*Integer.valueOf(Character.toString(cnp.charAt(0))) + 
-						7*Integer.valueOf(Character.toString(cnp.charAt(1))) + 
-						9*Integer.valueOf(Character.toString(cnp.charAt(2))) + 
-						  Integer.valueOf(Character.toString(cnp.charAt(3))) + 
-						4*Integer.valueOf(Character.toString(cnp.charAt(4))) + 
-						6*Integer.valueOf(Character.toString(cnp.charAt(5))) + 
-						3*Integer.valueOf(Character.toString(cnp.charAt(6))) + 
-						5*Integer.valueOf(Character.toString(cnp.charAt(7))) + 
-						8*Integer.valueOf(Character.toString(cnp.charAt(8))) + 
-						2*Integer.valueOf(Character.toString(cnp.charAt(9))) + 
-						7*Integer.valueOf(Character.toString(cnp.charAt(10))) + 
-						9*Integer.valueOf(Character.toString(cnp.charAt(11)))) % 11 ;
+		int restCNP = ( 2*Integer.valueOf(Character.toString(xcnp.charAt(0))) + 
+						7*Integer.valueOf(Character.toString(xcnp.charAt(1))) + 
+						9*Integer.valueOf(Character.toString(xcnp.charAt(2))) + 
+						  Integer.valueOf(Character.toString(xcnp.charAt(3))) + 
+						4*Integer.valueOf(Character.toString(xcnp.charAt(4))) + 
+						6*Integer.valueOf(Character.toString(xcnp.charAt(5))) + 
+						3*Integer.valueOf(Character.toString(xcnp.charAt(6))) + 
+						5*Integer.valueOf(Character.toString(xcnp.charAt(7))) + 
+						8*Integer.valueOf(Character.toString(xcnp.charAt(8))) + 
+						2*Integer.valueOf(Character.toString(xcnp.charAt(9))) + 
+						7*Integer.valueOf(Character.toString(xcnp.charAt(10))) + 
+						9*Integer.valueOf(Character.toString(xcnp.charAt(11)))) % 11 ;
 		if (restCNP == 10) {
 			restCNP = 1 ;
 		}
 		ret5 = false ;
-		if (restCNP == Integer.valueOf(Character.toString(cnp.charAt(12)))) {
+		if (restCNP == Integer.valueOf(Character.toString(xcnp.charAt(12)))) {
 			ret5 = true ;
 		}
 

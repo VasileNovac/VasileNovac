@@ -1,16 +1,10 @@
 package ro.digitalnation.NovacVasile;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 
 @Entity
 public class MasculinParinte extends MembriFamilie{
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id ;
 	private String sex ;
 
 	public MasculinParinte() { }
@@ -27,4 +21,9 @@ public class MasculinParinte extends MembriFamilie{
 		this.sex = sex;
 	}
 
+	@Override
+	public String toString() {
+		return super.toString() ;
+	}
+	
 }

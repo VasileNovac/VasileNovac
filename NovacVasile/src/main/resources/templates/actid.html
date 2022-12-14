@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<div th:fragment="copy">
+		<fieldset class="border border-warning p-2">
+			<legend class="bg-warning text-danger p-1">Act Identitate:</legend>
+			<div class="form-floating mb-1 mt-1">
+				<select class="form-select text-success" id="tip" th:field="*{actId}">
+					<option th:each="x : ${aiList}" th:value="${x.key}" th:text="${x.key}+' - '+${x.value}" />
+				</select>
+   				<label for="tip" class="form-label text-danger"><b>Tip:</b></label>
+			</div>
+			<div class="form-floating mb-1 mt-1">
+   				<input type="text" class="form-control text-success" id="serie" placeholder="Serie" name="serie" value="" th:field="*{serieActId}">
+   				<label for="serie" class="form-label text-danger"><b>Serie:</b></label>
+			</div>
+			<div class="form-floating mb-1 mt-1">
+   				<input type="text" class="form-control text-success" id="nr" placeholder="Numar" name="nr" value="" th:field="*{nrActId}">
+   				<label for="nr" class="form-label text-danger"><b>Numar:</b></label>
+			</div>
+			<div class="form-floating mb-1 mt-1">
+   				<input type="text" class="form-control text-success" id="de" placeholder="Data Expirare" name="de" value="" th:field="*{dataExpActId}">
+   				<label for="de" class="form-label text-danger"><b>Data Expirare:</b></label>
+			</div>
+		</fieldset>
+	</div>
+</body>
+</html>

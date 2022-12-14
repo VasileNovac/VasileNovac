@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<div th:fragment="copy">
+		<div class="form-floating mb-1 mt-1">
+			<select class="form-select text-success" id="sc" th:field="*{stareCivila}">
+				<option th:each="x : ${scList}" th:value="${x}" th:text="${x}" />
+			</select>
+			<label for="sc" class="form-label text-danger"><b>Stare Civila:</b></label>
+		</div>
+		<div class="form-floating mb-1 mt-1">
+			<input type="text" class="form-control text-success" id="dn" placeholder="Data Nastere" name="dn" value="" required th:field="*{dataNastere}">
+			<label for="dn" class="form-label text-danger"><b>Data Nastere:</b></label>
+		</div>
+		<div class="form-floating mb-1 mt-1">
+			<input type="text" class="form-control text-success" id="cet" placeholder="Cetatenie" name="cet" value="" th:field="*{cetatenie}">
+			<label for="cet" class="form-label text-danger"><b>Cetatenie:</b></label>
+		</div>
+		<div class="form-floating mb-1 mt-1">
+			<select class="form-select text-success" id="sitc" th:field="*{situatieScolara}">
+				<option th:each="x : ${ssList}" th:value="${x}" th:text="${x}" />
+			</select>
+			<label for="sitc" class="form-label text-danger"><b>Situatie scolara:</b></label>
+		</div>
+		<div class="form-floating mb-1 mt-1">
+			<select class="form-select text-success" id="sitp" th:field="*{situatieProfesionala}">
+				<option th:each="x : ${spList}" th:value="${x}" th:text="${x}" />
+			</select>
+			<label for="sitp" class="form-label text-danger"><b>Situatie profesionala:</b></label>
+		</div>
+		<div class="form-floating mb-1 mt-1">
+			<input type="number" class="form-control text-success" id="vtul" placeholder="Venit total personal ultima luna" name="vtul" min="0" th:field="*{venitTotalUltimaLuna}">
+			<label for="vtul" class="form-label text-danger"><b>Venit total personal ultima luna:</b></label>
+		</div>
+	</div>
+</body>
+</html>

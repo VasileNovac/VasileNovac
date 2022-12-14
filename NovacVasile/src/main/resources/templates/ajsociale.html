@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<div th:fragment="copy">
+		<div class="form-floating mb-1 mt-1">
+			<select class="form-select text-success" id="cd" th:field="*{cuDizabilitati}">
+				<option th:each="x : ${dnList}" th:value="${x}" th:text="${x}" />
+			</select>
+			<label for="cd" class="form-label text-danger"><b>Cu Dizabilitati:</b></label>
+		</div>
+		<div class="form-floating mb-1 mt-1">
+			<select class="form-select text-success" id="bads" th:field="*{beneficiatAlteDreptSociale}">
+				<option th:each="x : ${dnList}" th:value="${x}" th:text="${x}" />
+			</select>
+			<label for="bads" class="form-label text-danger"><b>Beneficiar de alte drepturi sociale:</b></label>
+		</div>
+		<div class="form-floating mb-1 mt-1">
+			<select class="form-select text-success" id="cds" th:field="*{categDreptSociale}">
+				<option th:each="x : ${cdsList}" th:value="${x}" th:text="${x}" />
+			</select>
+			<label for="cds" class="form-label text-danger"><b>Denumire alte drepturi sociale:</b></label>
+		</div>
+	</div>
+</body>
+</html>

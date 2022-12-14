@@ -54,4 +54,10 @@ public class DispozitiePrimar {
 	public void setDataIntrareVigoare(String dataIntrareVigoare) {
 		this.dataIntrareVigoare = dataIntrareVigoare;
 	}
+
+	@Override
+	public String toString() {
+		return String.format("DP [nr='%d', data='%s', categ='%s', dataIntVigoare='%']", nrDispozitie, dataDispozitie, categDispozitie, dataIntrareVigoare) ;
+	}
+
 }

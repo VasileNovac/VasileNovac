@@ -10,142 +10,26 @@
 	<script type="text/javascript" src="include.js"></script>
 </head>
 <body class="bg-dark">
-<!-- 
-	<div w3-include-html="content.html"></div>
-	<script>
-		includeHTML();
-	</script>
--->
-	<nav class="navbar navbar-expand-lg navbar-light bg-info">
-   		<div class="container-fluid">
-        	 <a class="navbar-brand" href="#"><b>NV</b></a>
-         	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-           	<span class="navbar-toggler-icon"></span>
-         	</button>
-         	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-           	<ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-pills" role="tablist">
-            	<li class="nav-item">
-               		<a id="id1" class="nav-link" href="/"><b>Home</b></a>
-             	</li>
-             	<li class="nav-item">
-               		<a id="id2" class="nav-link" href="/rl"><b>RL Familie</b></a>
-             	</li>
-             	<li class="nav-item">
-               		<a id="id3" class="nav-link active" aria-curent="page" href="/mp"><b>MasculinParinte</b></a>
-             	</li>
-             	<li class="nav-item">
-               		<a id="id4" class="nav-link" href="/fp"><b>FemininParinte</b></a>
-             	</li>
-             	<li class="nav-item">
-               		<a id="id5" class="nav-link" href="/copil"><b>Copil</b></a>
-             	</li>
-             	<li class="nav-item">
-               		<a id="id6" class="nav-link" href="/mf"><b>MembruMajor</b></a>
-             	</li>
-             	<li class="nav-item">
-               		<a id="id7" class="nav-link" href="/dp"><b>DispozitiePrimar</b></a>
-             	</li>
-             	<li class="nav-item">
-               		<a id="id8" class="nav-link" href="/rapoarte"><b>Rapoarte</b></a>
-             	</li>
-           	</ul>
-         	</div>
-   		</div>   	
-	</nav>
+	<span th:insert="~{navbar :: copy}"></span>
 	<div class="container-fluid">
 		<form action="#" th:action="@{/addMasculinParinte}" th:object="${masculinParinte}" method="post">
 			<div class="row">
 				<div class="col-sm-1 p-3"></div>
 				<div class="col-sm-3 p-3">
 					<fieldset class="border border-warning p-2">
-					<legend class="bg-warning text-danger p-1">Parinte genul Masculin ( TATA )</legend>
-					<div class="form-floating mb-1 mt-1">
-         				<input type="text" class="form-control text-success" id="cnp" placeholder="CNP" name="cnp" value="" autofocus required th:field="*{cnp}">
-        				<label for="cnp" class="form-label text-danger"><b>CNP:</b></label>
-      				</div>
-					<div class="form-floating mb-1 mt-1">
-        				<input type="text" class="form-control text-success" id="nume" placeholder="Nume" name="nume" value="" required th:field="*{nume}">
-        				<label for="nume" class="form-label text-danger"><b>Nume:</b></label>
-      				</div>
-					<div class="form-floating mb-1 mt-1">
-        				<input type="text" class="form-control text-success" id="prenume" placeholder="Prenume" name="prenume" value="" required th:field="*{prenume}">
-        				<label for="prenume" class="form-label text-danger"><b>Prenume:</b></label>
-      				</div>
+						<legend class="bg-warning text-danger p-1">Parinte genul Masculin ( TATA )</legend>
+						<div>
+	  						<span th:insert="~{numpre :: copy}"></span>
+						</div>
       				</fieldset>
 				</div>
 				<div class="col-sm-3 p-3">
-					<fieldset class="border border-warning p-2">
-					<legend class="bg-warning text-danger p-1">Act Identitate:</legend>
-					<div class="form-floating mb-1 mt-1">
-						<select class="form-select text-success" id="tip" th:field="*{actId}">
-							<option th:each="x : ${aiList}" th:value="${x.key}" th:text="${x.key}+' - '+${x.value}" />
-						</select>
-        				<label for="tip" class="form-label text-danger"><b>Tip:</b></label>
-      				</div>
-					<div class="form-floating mb-1 mt-1">
-        				<input type="text" class="form-control text-success" id="serie" placeholder="Serie" name="serie" value="" th:field="*{serieActId}">
-        				<label for="serie" class="form-label text-danger"><b>Serie:</b></label>
-      				</div>
-					<div class="form-floating mb-1 mt-1">
-        				<input type="text" class="form-control text-success" id="nr" placeholder="Numar" name="nr" value="" th:field="*{nrActId}">
-        				<label for="nr" class="form-label text-danger"><b>Numar:</b></label>
-      				</div>
-					<div class="form-floating mb-1 mt-1">
-	       				<input type="text" class="form-control text-success" id="de" placeholder="Data Expirare" name="de" value="" th:field="*{dataExpActId}">
-        				<label for="de" class="form-label text-danger"><b>Data Expirare:</b></label>
-      				</div>
-					</fieldset>
+					<span th:insert="~{actid :: copy}"></span>
 				</div>
 				<div class="col-sm-3 p-3">
 					<fieldset class="border border-warning p-2">
-					<div class="form-floating mb-1 mt-1">
-						<select class="form-select text-success" id="sc" th:field="*{stareCivila}">
-							<option th:each="x : ${scList}" th:value="${x}" th:text="${x}" />
-						</select>
-        				<label for="sc" class="form-label text-danger"><b>Stare Civila:</b></label>
-       				</div>
-					<div class="form-floating mb-1 mt-1">
-        				<input type="text" class="form-control text-success" id="dn" placeholder="Data Nastere" name="dn" value="" required th:field="*{dataNastere}">
-        				<label for="dn" class="form-label text-danger"><b>Data Nastere:</b></label>
-      				</div>
-					<div class="form-floating mb-1 mt-1">
-	       				<input type="text" class="form-control text-success" id="cet" placeholder="Cetatenie" name="cet" value="" th:field="*{cetatenie}">
-        				<label for="cet" class="form-label text-danger"><b>Cetatenie:</b></label>
-      				</div>
-					<div class="form-floating mb-1 mt-1">
-						<select class="form-select text-success" id="sitc" th:field="*{situatieScolara}">
-							<option th:each="x : ${ssList}" th:value="${x}" th:text="${x}" />
-						</select>
-        				<label for="sitc" class="form-label text-danger"><b>Situatie scolara:</b></label>
-      				</div>
-					<div class="form-floating mb-1 mt-1">
-						<select class="form-select text-success" id="sitp" th:field="*{situatieProfesionala}">
-							<option th:each="x : ${spList}" th:value="${x}" th:text="${x}" />
-						</select>
-        				<label for="sitp" class="form-label text-danger"><b>Situatie profesionala:</b></label>
-      				</div>
-					<div class="form-floating mb-1 mt-1">
-	       				<input type="number" class="form-control text-success" id="vtul" placeholder="Venit total personal ultima luna" name="vtul" min="0" th:field="*{venitTotalUltimaLuna}">
-        				<label for="vtul" class="form-label text-danger"><b>Venit total personal ultima luna:</b></label>
-      				</div>
-					<div class="form-floating mb-1 mt-1">
-						<select class="form-select text-success" id="cd" th:field="*{cuDizabilitati}">
-							<option th:each="x : ${dnList}" th:value="${x}" th:text="${x}" />
-						</select>
-        				<label for="cd" class="form-label text-danger"><b>Cu Dizabilitati:</b></label>
-      				</div>
-					<div class="form-floating mb-1 mt-1">
-						<select class="form-select text-success" id="bads" th:field="*{beneficiatAlteDreptSociale}">
-							<option th:each="x : ${dnList}" th:value="${x}" th:text="${x}" />
-						</select>
-        				<label for="bads" class="form-label text-danger"><b>Beneficiar de alte drepturi sociale:</b></label>
-      				</div>
-					<div class="form-floating mb-1 mt-1">
-						<select class="form-select text-success" id="cds" th:field="*{categDreptSociale}">
-							<option th:each="x : ${cdsList}" th:value="${x}" th:text="${x}" />
-						</select>
-        				<label for="cds" class="form-label text-danger"><b>Denumire alte drepturi sociale:</b></label>
-      				</div>
+					<span th:insert="~{info1 :: copy}"></span>
+					<span th:insert="~{ajsociale :: copy}"></span>
 <!--
 					<div class="form-floating mb-1 mt-1">
 						<select class="form-select text-success" id="sex" th:field="*{sex}">
@@ -155,6 +39,14 @@
       				</div>
 -->
       				</fieldset>
+      			</div>
+				<div class="col-sm-2 p-3">
+					<div th:if="${erori}">
+						<div class="alert alert-danger alert-dismissible">
+							<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+							<strong>ATENTIONARE !</strong><br>CNP incorect
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="row">
