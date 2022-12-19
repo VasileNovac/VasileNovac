@@ -156,6 +156,13 @@ public class Familie {
 		this.nrCopii = nrCopii;
 	}
 	
+	public Long getId() {
+		return Id;
+	}
+	public void setId(Long id) {
+		Id = id;
+	}
+
 	@Override
 	public String toString() {
 		return String.format("RL [cnpRL='%d', numeRL='%s', prenumeRL='%s']", cnpRL, numeRL, prenumeRL) ;

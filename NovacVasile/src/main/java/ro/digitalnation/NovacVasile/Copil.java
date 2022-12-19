@@ -12,8 +12,8 @@ public class Copil extends MembriFamilie {
 
 	public Copil() { }
 	
-	public Copil (String cnp, String nume, String prenume, String actId, String serieActId, String nrActId, String dataNastere, String situatieScolara, String cuDizabilitati, String beneficiatAlteDreptSociale, String categDreptSociale, String gradRudaRL, String sex) {
-		super(cnp, nume, prenume, actId, serieActId, nrActId, dataNastere, situatieScolara, cuDizabilitati, beneficiatAlteDreptSociale, categDreptSociale) ;
+	public Copil (String cnp, String nume, String prenume, String actId, String serieActId, String nrActId, String dataExpActId, String dataNastere, String situatieScolara, String cuDizabilitati, String beneficiatAlteDreptSociale, String categDreptSociale, String gradRudaRL, String sex) {
+		super(cnp, nume, prenume, actId, serieActId, nrActId, dataExpActId, dataNastere, situatieScolara, cuDizabilitati, beneficiatAlteDreptSociale, categDreptSociale) ;
 		this.gradRudaRL = gradRudaRL ;
 		this.sex = sex ;
 	}

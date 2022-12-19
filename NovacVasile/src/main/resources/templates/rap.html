@@ -22,7 +22,10 @@
 	    	        		<td>Nume RL</td>
 	        	    		<td>Prenume RL</td>
 	            			<td>Localitate</td>
-	            			<td>Judet<th>
+	            			<td>Judet</td>
+	            			<td>Primarie</td>
+	            			<td>Nr Persoane Majore</td>
+	            			<td>Nr Copii</td>
 			    	    </tr>
 	    		    	<tr th:each="list : ${familie}">
 			    			<td th:text="${list.cnpRL}"></td>
@@ -30,6 +33,9 @@
 		    		   	    <td th:text="${list.prenumeRL}"></td>
 	    	   				<td th:text="${list.adresaLoc}"></td>
 				           	<td th:text="${list.adresaJud}"></td>
+				           	<td th:text="${list.primarie}"></td>
+				           	<td th:text="${list.nrPersoaneMajore}"></td>
+				           	<td th:text="${list.nrCopii}"></td>
 	    			    </tr>
 	    			</tbody>
 					<tbody th:case="mp">
@@ -38,15 +44,21 @@
 			            	<td>Nume</td>
 				            <td>Prenume</td>
 				            <td>Act Identitate</td>
-				            <td>Stare Civila<td>
-		 		           <td>Sex<td>
+				            <td>DataExpirare Act Id</td>
+				            <td>Stare Civila</td>
+				            <td>Situatie Scolara</td>
+				            <td>Situatie Profesionala</td>
+					        <td>Sex<td>
 				        </tr>
 					    <tr th:each="list : ${masculinParinte}">
 					    	<td th:text="${list.cnp}"></td>
 				    	    <td th:text="${list.nume}"></td>
 				        	<td th:text="${list.prenume}"></td>
 				           	<td th:text="${list.actId}"></td>
+				           	<td th:text="${list.dataExpActId}"></td>
 				            <td th:text="${list.stareCivila}"></td>
+				            <td th:text="${list.situatieScolara}"></td>
+				            <td th:text="${list.situatieProfesionala}"></td>
 				            <td th:text="${list.sex}"></td>
 				        </tr>
 					</tbody>
@@ -56,7 +68,10 @@
 				            <td>Nume</td>
 				            <td>Prenume</td>
 				            <td>Act Identitate</td>
-				            <td>Stare Civila<td>
+				            <td>DataExpirare Act Id</td>
+				            <td>Stare Civila</td>
+				            <td>Situatie Scolara</td>
+				            <td>Situatie Profesionala</td>
 				            <td>Sex<td>
 				        </tr>
 					    <tr th:each="list : ${femininParinte}">
@@ -64,7 +79,10 @@
 				    	    <td th:text="${list.nume}"></td>
 				        	<td th:text="${list.prenume}"></td>
 				           	<td th:text="${list.actId}"></td>
+				           	<td th:text="${list.dataExpActId}"></td>
 				            <td th:text="${list.stareCivila}"></td>
+				            <td th:text="${list.situatieScolara}"></td>
+				            <td th:text="${list.situatieProfesionala}"></td>
 				            <td th:text="${list.sex}"></td>
 				        </tr>
 					</tbody>
@@ -74,16 +92,22 @@
 		  			        <td>Nume</td>
 	 			           	<td>Prenume</td>
 	  			          	<td>Act Identitate</td>
-		   			        <td>Stare Civila<td>
-	  			          <td>Sex<td>
+				            <td>DataExpirare Act Id</td>
+		   			        <td>Stare Civila</td>
+				            <td>Situatie Scolara</td>
+				            <td>Situatie Profesionala</td>
+					        <td>Sex<td>
 		   			    </tr>
 					    <tr th:each="list : ${altaPersMajora}">
 					    	<td th:text="${list.cnp}"></td>
 				    	    <td th:text="${list.nume}"></td>
 				        	<td th:text="${list.prenume}"></td>
 				           	<td th:text="${list.actId}"></td>
+				           	<td th:text="${list.dataExpActId}"></td>
 				            <td th:text="${list.stareCivila}"></td>
-	 			           <td th:text="${list.sex}"></td>
+				            <td th:text="${list.situatieScolara}"></td>
+				            <td th:text="${list.situatieProfesionala}"></td>
+							<td th:text="${list.sex}"></td>
 				        </tr>
 					</tbody>
 					<tbody th:case="copil">
@@ -92,6 +116,8 @@
 	 						<td>Nume</td>
 	 						<td>Prenume</td>
 	  						<td>Act Identitate</td>
+				            <td>Situatie Scolara</td>
+				            <td>Relatie rudenie cu RL</td>
 	  						<td>Sex<td>
 	 					</tr>
 					    <tr th:each="list : ${copil}">
@@ -99,6 +125,8 @@
 	 			   	    	<td th:text="${list.nume}"></td>
 	 			       		<td th:text="${list.prenume}"></td>
 	 			          	<td th:text="${list.actId}"></td>
+				            <td th:text="${list.situatieScolara}"></td>
+							<td th:text="${list.gradRudaRL}"></td>
 				            <td th:text="${list.sex}"></td>
 				        </tr>
 					</tbody>

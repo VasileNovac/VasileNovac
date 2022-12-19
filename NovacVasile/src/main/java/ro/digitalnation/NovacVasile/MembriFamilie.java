@@ -67,13 +67,14 @@ public class MembriFamilie {
 
 //constructor pentru Copil
 	
-	public MembriFamilie ( String cnp, String nume, String prenume, String actId, String serieActId, String nrActId, String dataNastere, String situatieScolara, String cuDizabilitati, String beneficiatAlteDreptSociale, String categDreptSociale ) {
+	public MembriFamilie ( String cnp, String nume, String prenume, String actId, String serieActId, String nrActId, String dataExpActId, String dataNastere, String situatieScolara, String cuDizabilitati, String beneficiatAlteDreptSociale, String categDreptSociale ) {
 		this.cnp = cnp ;
 		this.nume = nume ;
 		this.prenume = prenume ;
 		this.actId = actId ;
 		this.serieActId = serieActId ;
 		this.nrActId = nrActId ;
+		this.dataExpActId = dataExpActId ;
 		this.dataNastere = dataNastere ;
 		this.situatieScolara = situatieScolara ;
 		this.cuDizabilitati = cuDizabilitati ;
@@ -346,6 +347,13 @@ public class MembriFamilie {
 		this.categDreptSociale = categDreptSociale;
 	}
 	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	@Override
 	public String toString() {
 		return String.format("MF [cnp='%d', nume='%s', prenume='%s']", cnp, nume, prenume) ;
