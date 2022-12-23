@@ -92,52 +92,51 @@ public class MembriFamilie {
 	public static boolean verifCNP(String xcnp ) { 
 		// verificare lungime cnp
 		ret1 = false ;
+		ret2 = true ;
+		ret3 = false ;
+		ret4 = false ;
+		ret5 = false ;
 		if ( xcnp.length() == 13 ) {
 			ret1 = true ;
-		}
 		
 		// verificare ca toate caracterele cnp sunt numerice
-		ret2 = true ;
-		for ( int j = 0 ; j < xcnp.length() ; j++) {
-			if (Pattern.matches("[0-9]", Character.toString(xcnp.charAt(j))) && ret2 == true ) { }
-			else {
-				ret2 = false ;
+			for ( int j = 0 ; j < xcnp.length() ; j++) {
+				if (Pattern.matches("[0-9]", Character.toString(xcnp.charAt(j))) && ret2 == true ) { }
+				else {
+					ret2 = false ;
+				}
 			}
-		}
 
 		// verificare ca luna cnp este cuprinsa intre 1 si 12 
-		ret3 = false ;
-		if (Integer.valueOf(Character.toString(xcnp.charAt(3)) + Character.toString(xcnp.charAt(4))) < 13 && Integer.valueOf(Character.toString(xcnp.charAt(3)) + Character.toString(xcnp.charAt(4))) > 0 ) {
-			ret3 = true ;
-		}
+			if (Integer.valueOf(Character.toString(xcnp.charAt(3)) + Character.toString(xcnp.charAt(4))) < 13 && Integer.valueOf(Character.toString(xcnp.charAt(3)) + Character.toString(xcnp.charAt(4))) > 0 ) {
+				ret3 = true ;
+			}
 		
 		// verificare ca ziua cnp este cuprinsa intre 1 si 31
-		ret4 = false ;
-		if (Integer.valueOf(Character.toString(xcnp.charAt(5)) + Character.toString(xcnp.charAt(6))) < 32 && Integer.valueOf(Character.toString(xcnp.charAt(5)) + Character.toString(xcnp.charAt(6))) > 0 ) {
-			ret4 = true ;
-		}
+			if (Integer.valueOf(Character.toString(xcnp.charAt(5)) + Character.toString(xcnp.charAt(6))) < 32 && Integer.valueOf(Character.toString(xcnp.charAt(5)) + Character.toString(xcnp.charAt(6))) > 0 ) {
+				ret4 = true ;
+			}
 
 		// verificare ca cifra de control cnp este corecta
-		int restCNP = ( 2*Integer.valueOf(Character.toString(xcnp.charAt(0))) + 
-						7*Integer.valueOf(Character.toString(xcnp.charAt(1))) + 
-						9*Integer.valueOf(Character.toString(xcnp.charAt(2))) + 
-						  Integer.valueOf(Character.toString(xcnp.charAt(3))) + 
-						4*Integer.valueOf(Character.toString(xcnp.charAt(4))) + 
-						6*Integer.valueOf(Character.toString(xcnp.charAt(5))) + 
-						3*Integer.valueOf(Character.toString(xcnp.charAt(6))) + 
-						5*Integer.valueOf(Character.toString(xcnp.charAt(7))) + 
-						8*Integer.valueOf(Character.toString(xcnp.charAt(8))) + 
-						2*Integer.valueOf(Character.toString(xcnp.charAt(9))) + 
-						7*Integer.valueOf(Character.toString(xcnp.charAt(10))) + 
-						9*Integer.valueOf(Character.toString(xcnp.charAt(11)))) % 11 ;
-		if (restCNP == 10) {
-			restCNP = 1 ;
+			int restCNP = ( 2*Integer.valueOf(Character.toString(xcnp.charAt(0))) + 
+							7*Integer.valueOf(Character.toString(xcnp.charAt(1))) + 
+							9*Integer.valueOf(Character.toString(xcnp.charAt(2))) + 
+							1*Integer.valueOf(Character.toString(xcnp.charAt(3))) + 
+							4*Integer.valueOf(Character.toString(xcnp.charAt(4))) + 
+							6*Integer.valueOf(Character.toString(xcnp.charAt(5))) + 
+							3*Integer.valueOf(Character.toString(xcnp.charAt(6))) + 
+							5*Integer.valueOf(Character.toString(xcnp.charAt(7))) + 
+							8*Integer.valueOf(Character.toString(xcnp.charAt(8))) + 
+							2*Integer.valueOf(Character.toString(xcnp.charAt(9))) + 
+							7*Integer.valueOf(Character.toString(xcnp.charAt(10))) + 
+							9*Integer.valueOf(Character.toString(xcnp.charAt(11)))) % 11 ;
+			if (restCNP == 10) {
+				restCNP = 1 ;
+			}
+			if (restCNP == Integer.valueOf(Character.toString(xcnp.charAt(12)))) {
+				ret5 = true ;
+			}
 		}
-		ret5 = false ;
-		if (restCNP == Integer.valueOf(Character.toString(xcnp.charAt(12)))) {
-			ret5 = true ;
-		}
-
 		return ret1 && ret2 && ret3 && ret4 && ret5 ;
 	}
 	

@@ -35,15 +35,14 @@ public class NovacVasileApplication {
 //		Open a connection 
 	        conn = DriverManager.getConnection(DB_URL,USER,PASS);
 
-//		Drop table altfel apare conflict cu ID primary key
+//		Drop table. Simplifica testele cu cateva CNPRL.
 	        stmt = conn.createStatement();
 	        sql = "DROP TABLE IF EXISTS familie" ;
 	        stmt.executeUpdate(sql) ;
 //		Create table
         	stmt = conn.createStatement(); 
 	       	sql = "CREATE TABLE IF NOT EXISTS familie " + 
-	       			 "( id integer not NULL," + 
-	        		 "cnpRL varchar(13)," +  
+	       			 "( cnpRL varchar(13) PRIMARY KEY," +  
 	        		 "numeRL varchar(30)," +  
 	        		 "prenumeRL varchar(30)," +
 	        		 "adresaLoc varchar(30)," +
@@ -58,19 +57,17 @@ public class NovacVasileApplication {
 	        		 "adresaCodP varchar(8)," +
 	        		 "primarie varchar(20)," +
 	        		 "nrPersoaneMajore integer," +
-	        		 "nrCopii integer," +
-	        		 "primary key(id) )";  
+	        		 "nrCopii integer )";
 	        stmt.executeUpdate(sql);
 
-//		Drop table altfel apare conflict cu ID primary key
+//		Drop table. Simplifica testele cu cateva CNP.
 	        stmt = conn.createStatement();
 	        sql = "DROP TABLE IF EXISTS copil" ;
 	        stmt.executeUpdate(sql) ;
 //		Create table
         	stmt = conn.createStatement(); 
 	        sql = "CREATE TABLE IF NOT EXISTS copil " + 
-	        		 "( id integer not NULL," + 
-	        		 "cnp varchar(13)," +  
+	        		 "( cnp varchar(13) PRIMARY KEY," +  
 	        		 "nume varchar(30)," +  
 	        		 "prenume varchar(30)," +
 	        		 "actId varchar(4)," +
@@ -83,10 +80,103 @@ public class NovacVasileApplication {
 	        		 "beneficiatAlteDreptSociale varchar(2)," +
 	        		 "categDreptSociale varchar(30)," +
 	        		 "gradRudaRL varchar(16)," +
-	        		 "sex varchar(1)," +
-	        		 "primary key(id) )";  
+	        		 "sex varchar(1) )";  
 	        stmt.executeUpdate(sql);
-	    } catch(SQLException se) { 
+
+//			Drop table. Simplifica testele cu cateva CNP.
+	        stmt = conn.createStatement();
+	        sql = "DROP TABLE IF EXISTS masculinParinte" ;
+	        stmt.executeUpdate(sql) ;
+//		Create table
+        	stmt = conn.createStatement(); 
+	        sql = "CREATE TABLE IF NOT EXISTS masculinParinte " + 
+	        		 "( cnp varchar(13) PRIMARY KEY," +  
+	        		 "nume varchar(30)," +  
+	        		 "prenume varchar(30)," +
+	        		 "actId varchar(4)," +
+	        		 "serieActId varchar(4)," +
+	        		 "nrActId varchar(10)," +
+	        		 "dataExpActId varchar(10)," +
+	        		 "stareCivila varchar(20)," +
+	        		 "dataNastere varchar(10)," +
+	        		 "cetatenie varchar(20)," +
+	        		 "situatieScolara varchar(17)," +
+	        		 "situatieProfesionala varchar(18)," +
+	        		 "venitTotalUltimaLuna integer," +
+	        		 "cuDizabilitati varchar(2)," +
+	        		 "beneficiatAlteDreptSociale varchar(2)," +
+	        		 "categDreptSociale varchar(30)," +
+	        		 "sex varchar(1) )";  
+	        stmt.executeUpdate(sql);
+
+//			Drop table. Simplifica testele cu cateva CNP.
+	        stmt = conn.createStatement();
+	        sql = "DROP TABLE IF EXISTS femininParinte" ;
+	        stmt.executeUpdate(sql) ;
+//		Create table
+        	stmt = conn.createStatement(); 
+	        sql = "CREATE TABLE IF NOT EXISTS femininParinte " + 
+	        		 "( cnp varchar(13) PRIMARY KEY," +  
+	        		 "nume varchar(30)," +  
+	        		 "prenume varchar(30)," +
+	        		 "actId varchar(4)," +
+	        		 "serieActId varchar(4)," +
+	        		 "nrActId varchar(10)," +
+	        		 "dataExpActId varchar(10)," +
+	        		 "stareCivila varchar(20)," +
+	        		 "dataNastere varchar(10)," +
+	        		 "cetatenie varchar(20)," +
+	        		 "situatieScolara varchar(17)," +
+	        		 "situatieProfesionala varchar(18)," +
+	        		 "venitTotalUltimaLuna integer," +
+	        		 "cuDizabilitati varchar(2)," +
+	        		 "beneficiatAlteDreptSociale varchar(2)," +
+	        		 "categDreptSociale varchar(30)," +
+	        		 "sex varchar(1) )";  
+	        stmt.executeUpdate(sql);
+
+//			Drop table. Simplifica testele cu cateva CNP.
+	        stmt = conn.createStatement();
+	        sql = "DROP TABLE IF EXISTS altaPersMajora" ;
+	        stmt.executeUpdate(sql) ;
+//		Create table
+        	stmt = conn.createStatement(); 
+	        sql = "CREATE TABLE IF NOT EXISTS altaPersMajora " + 
+	        		 "( cnp varchar(13) PRIMARY KEY," +  
+	        		 "nume varchar(30)," +  
+	        		 "prenume varchar(30)," +
+	        		 "actId varchar(4)," +
+	        		 "serieActId varchar(4)," +
+	        		 "nrActId varchar(10)," +
+	        		 "dataExpActId varchar(10)," +
+	        		 "stareCivila varchar(20)," +
+	        		 "dataNastere varchar(10)," +
+	        		 "cetatenie varchar(20)," +
+	        		 "situatieScolara varchar(17)," +
+	        		 "situatieProfesionala varchar(18)," +
+	        		 "venitTotalUltimaLuna integer," +
+	        		 "cuDizabilitati varchar(2)," +
+	        		 "beneficiatAlteDreptSociale varchar(2)," +
+	        		 "categDreptSociale varchar(30)," +
+	        		 "sex varchar(1) )";  
+	        stmt.executeUpdate(sql);
+
+//			Drop table altfel apare conflict cu ID primary key
+	        stmt = conn.createStatement();
+	        sql = "DROP TABLE IF EXISTS dispozitieprimar" ;
+	        stmt.executeUpdate(sql) ;
+//		Create table
+        	stmt = conn.createStatement(); 
+	        sql = "CREATE TABLE IF NOT EXISTS dispozitieprimar " + 
+	        		 "( id integer not NULL," + 
+	        		 "nrDispozitie varchar(10)," +  
+	        		 "dataDispozitie varchar(10)," +  
+	        		 "categDispozitie varchar(1)," +
+	        		 "dataIntrareVigoare varchar(10)," +
+	        		 "primary key(id) )";
+	        stmt.executeUpdate(sql);
+
+		} catch(SQLException se) { 
 //		Handle errors for JDBC 
 	        se.printStackTrace(); 
 	    } catch(Exception e) { 

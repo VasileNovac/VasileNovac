@@ -18,11 +18,8 @@ public class Familie {
 
 	public Familie() {	}
 
-	public Familie (String cnpRL, String numeRL, String prenumeRL, String adresaLoc) {
+	public Familie (String cnpRL) {
 		this.cnpRL = cnpRL ;
-		this.numeRL = numeRL ;
-		this.prenumeRL = prenumeRL ;
-		this.adresaLoc = adresaLoc ;
 	}
 
 	public Familie (String cnpRL, String numeRL, String prenumeRL, String adresaLoc, String adresaStr, String adresaNr, String adresaBl, String adresaSc, String adresaEt, String adresaAp, String adresaSector,String adresaJud, String adresaCodP, String primarie, int nrPersoaneMajore, int nrCopii) {

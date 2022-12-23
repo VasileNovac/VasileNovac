@@ -17,6 +17,12 @@
 			<div class="row">
 				<div class="col-sm-1 p-3"></div>
 				<div class="col-sm-3 p-3">
+					<div th:if="${erori}">
+						<div class="alert alert-danger alert-dismissible">
+							<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+							<strong>ATENTIONARE !</strong><br>CNP incorect
+						</div>
+					</div>
 					<fieldset class="border border-warning p-2">
 					<legend class="bg-warning text-danger p-1">Persoana Majora din Familie</legend>
 					<div>
@@ -40,12 +46,14 @@
       				</fieldset>
 				</div>
 				<div class="col-sm-2 p-3">
+<!--
 					<div th:if="${erori}">
 						<div class="alert alert-danger alert-dismissible">
 							<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
 							<strong>ATENTIONARE !</strong><br>CNP incorect
 						</div>
 					</div>
+-->
 				</div>
 			</div>
 			<div class="row">

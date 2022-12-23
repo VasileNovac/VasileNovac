@@ -55,6 +55,13 @@ public class DispozitiePrimar {
 		this.dataIntrareVigoare = dataIntrareVigoare;
 	}
 
+	public Long getId() {
+		return Id;
+	}
+	public void setId(Long id) {
+		Id = id;
+	}
+
 	@Override
 	public String toString() {
 		return String.format("DP [nr='%d', data='%s', categ='%s', dataIntVigoare='%']", nrDispozitie, dataDispozitie, categDispozitie, dataIntrareVigoare) ;
