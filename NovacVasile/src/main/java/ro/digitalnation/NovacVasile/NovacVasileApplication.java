@@ -14,17 +14,17 @@ import java.sql.Statement;
 public class NovacVasileApplication {
 
 	private static String sql ;
-//	JDBC driver name and database URL 
-	   static final String JDBC_DRIVER = "org.h2.Driver";   
-//	   static final String DB_URL = "jdbc:h2:~/test;IFEXISTS=TRUE;DB_CLOSE_ON_EXIT=FALSE"; 
-	   static final String DB_URL = "jdbc:h2:~/test;IFEXISTS=TRUE"; 
+//JDBC driver name and database URL 
+	static final String JDBC_DRIVER = "org.h2.Driver";   
+//	static final String DB_URL = "jdbc:h2:~/test;IFEXISTS=TRUE;DB_CLOSE_ON_EXIT=FALSE"; 
+	static final String DB_URL = "jdbc:h2:~/test;IFEXISTS=TRUE"; 
 
-//	Database credentials 
-	   static final String USER = "sa"; 
-	   static final String PASS = ""; 
+//Database credentials 
+	static final String USER = "sa"; 
+	static final String PASS = ""; 
 
-	   public static Connection conn = null; 
-	   public static Statement stmt = null; 
+	public static Connection conn = null; 
+	public static Statement stmt = null; 
 	   
 	public static void main(String[] args) {
 		SpringApplication.run(NovacVasileApplication.class, args);
@@ -62,29 +62,6 @@ public class NovacVasileApplication {
 
 //		Drop table. Simplifica testele cu cateva CNP.
 	        stmt = conn.createStatement();
-	        sql = "DROP TABLE IF EXISTS copil" ;
-	        stmt.executeUpdate(sql) ;
-//		Create table
-        	stmt = conn.createStatement(); 
-	        sql = "CREATE TABLE IF NOT EXISTS copil " + 
-	        		 "( cnp varchar(13) PRIMARY KEY," +  
-	        		 "nume varchar(30)," +  
-	        		 "prenume varchar(30)," +
-	        		 "actId varchar(4)," +
-	        		 "serieActId varchar(4)," +
-	        		 "nrActId varchar(10)," +
-	        		 "dataExpActId varchar(10)," +
-	        		 "dataNastere varchar(10)," +
-	        		 "situatieScolara varchar(17)," +
-	        		 "cuDizabilitati varchar(2)," +
-	        		 "beneficiatAlteDreptSociale varchar(2)," +
-	        		 "categDreptSociale varchar(30)," +
-	        		 "gradRudaRL varchar(16)," +
-	        		 "sex varchar(1) )";  
-	        stmt.executeUpdate(sql);
-
-//			Drop table. Simplifica testele cu cateva CNP.
-	        stmt = conn.createStatement();
 	        sql = "DROP TABLE IF EXISTS masculinParinte" ;
 	        stmt.executeUpdate(sql) ;
 //		Create table
@@ -105,11 +82,12 @@ public class NovacVasileApplication {
 	        		 "venitTotalUltimaLuna integer," +
 	        		 "cuDizabilitati varchar(2)," +
 	        		 "beneficiatAlteDreptSociale varchar(2)," +
-	        		 "categDreptSociale varchar(30)," +
-	        		 "sex varchar(1) )";  
+	        		 "categDreptSociale varchar(50)," +
+	        		 "sex varchar(1)," +
+	        		 "cnprl varchar(13) )";  
 	        stmt.executeUpdate(sql);
 
-//			Drop table. Simplifica testele cu cateva CNP.
+//		Drop table. Simplifica testele cu cateva CNP.
 	        stmt = conn.createStatement();
 	        sql = "DROP TABLE IF EXISTS femininParinte" ;
 	        stmt.executeUpdate(sql) ;
@@ -131,8 +109,33 @@ public class NovacVasileApplication {
 	        		 "venitTotalUltimaLuna integer," +
 	        		 "cuDizabilitati varchar(2)," +
 	        		 "beneficiatAlteDreptSociale varchar(2)," +
-	        		 "categDreptSociale varchar(30)," +
-	        		 "sex varchar(1) )";  
+	        		 "categDreptSociale varchar(50)," +
+	        		 "sex varchar(1)," +
+	        		 "cnprl varchar(13) )";
+	        stmt.executeUpdate(sql);
+
+//		Drop table. Simplifica testele cu cateva CNP.
+	        stmt = conn.createStatement();
+	        sql = "DROP TABLE IF EXISTS copil" ;
+	        stmt.executeUpdate(sql) ;
+//		Create table
+        	stmt = conn.createStatement(); 
+	        sql = "CREATE TABLE IF NOT EXISTS copil " + 
+	        		 "( cnp varchar(13) PRIMARY KEY," +  
+	        		 "nume varchar(30)," +  
+	        		 "prenume varchar(30)," +
+	        		 "actId varchar(4)," +
+	        		 "serieActId varchar(4)," +
+	        		 "nrActId varchar(10)," +
+	        		 "dataExpActId varchar(10)," +
+	        		 "dataNastere varchar(10)," +
+	        		 "situatieScolara varchar(17)," +
+	        		 "cuDizabilitati varchar(2)," +
+	        		 "beneficiatAlteDreptSociale varchar(2)," +
+	        		 "categDreptSociale varchar(50)," +
+	        		 "gradRudaRL varchar(30)," +
+	        		 "sex varchar(1)," +
+	        		 "cnprl varchar(13) )";
 	        stmt.executeUpdate(sql);
 
 //			Drop table. Simplifica testele cu cateva CNP.
@@ -157,8 +160,9 @@ public class NovacVasileApplication {
 	        		 "venitTotalUltimaLuna integer," +
 	        		 "cuDizabilitati varchar(2)," +
 	        		 "beneficiatAlteDreptSociale varchar(2)," +
-	        		 "categDreptSociale varchar(30)," +
-	        		 "sex varchar(1) )";  
+	        		 "categDreptSociale varchar(50)," +
+	        		 "sex varchar(1)," +
+	        		 "cnprl varchar(13) )";
 	        stmt.executeUpdate(sql);
 
 //			Drop table altfel apare conflict cu ID primary key
@@ -168,12 +172,11 @@ public class NovacVasileApplication {
 //		Create table
         	stmt = conn.createStatement(); 
 	        sql = "CREATE TABLE IF NOT EXISTS dispozitieprimar " + 
-	        		 "( id integer not NULL," + 
-	        		 "nrDispozitie varchar(10)," +  
+	        		 "( nrDispozitie varchar(10) PRIMARY KEY," +  
 	        		 "dataDispozitie varchar(10)," +  
-	        		 "categDispozitie varchar(1)," +
+	        		 "categDispozitie varchar(2)," +
 	        		 "dataIntrareVigoare varchar(10)," +
-	        		 "primary key(id) )";
+	        		 "cnprl varchar(13) )";
 	        stmt.executeUpdate(sql);
 
 		} catch(SQLException se) { 

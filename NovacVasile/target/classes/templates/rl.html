@@ -15,27 +15,28 @@
 		<form action="#" th:action="@{/errFamilie}" th:object="${familie}" method="post" id="forme"></form>
 		<form action="#" th:action="@{/addFamilie}" th:object="${familie}" method="post" id="xforme">
 			<div class="row">
-				<div class="col-sm-1 p-3"></div>
-				<div class="col-sm-3 p-3">
+				<div class="col-sm-2 p-3">
 					<div th:if="${erori}">
 						<div class="alert alert-danger alert-dismissible">
 							<button type="button" class="btn" data-bs-dismiss="alert"></button>
 							<strong>ATENTIONARE !</strong><br>CNP RL incorect
 						</div>
 					</div>
+				</div>
+				<div class="col-sm-3 p-3">
 					<fieldset class="border border-warning p-2">
 					<legend class="bg-warning text-danger p-1">RL=Reprezentant Legal familie</legend>
 					<div th:if="${erori} or ${nrView}">
-					<div class="form-floating mb-1 mt-1">
-        				<input type="text" class="form-control text-success" id="cnprl" placeholder="CNP RL" name="cnprl" value="" autofocus required form="forme" onchange="forme.submit()" th:field="*{cnpRL}">
-        				<label for="cnprl" class="form-label text-danger"><b>CNP RL:</b></label>
-      				</div>
+						<div class="form-floating mb-1 mt-1">
+    	    				<input type="text" class="form-control text-success" id="cnprl" placeholder="CNP RL" name="cnprl" value="" pattern="[0-9]{13}" autofocus required form="forme" onchange="forme.submit()" th:field="*{cnpRL}">
+        					<label for="cnprl" class="form-label text-danger"><b>CNP RL:</b></label>
+      					</div>
 					</div>
 					<div th:unless="${erori} or ${nrView}">
-					<div class="form-floating mb-1 mt-1">
-        				<input type="text" class="form-control text-success" id="cnprl" placeholder="CNP RL" name="cnprl" value="" required th:field="*{cnpRL}">
-        				<label for="cnprl" class="form-label text-danger"><b>CNP RL:</b></label>
-      				</div>
+						<div class="form-floating mb-1 mt-1">
+        					<input type="text" class="form-control text-success" id="cnprl" placeholder="CNP RL" name="cnprl" value="" pattern="[0-9]{13}" required th:field="*{cnpRL}">
+        					<label for="cnprl" class="form-label text-danger"><b>CNP RL:</b></label>
+      					</div>
 					</div>
 					<div class="form-floating mb-1 mt-1">
         				<input type="text" class="form-control text-success" id="nume" placeholder="Nume RL" name="numerl" value="" autofocus required th:field="*{numeRL}">
@@ -108,32 +109,21 @@
       				</div>
       				</fieldset>
 				</div>
-				<div class="col-sm-2 p-3">
-<!--
-					<div th:if="${erori}">
-						<div class="alert alert-danger alert-dismissible">
-							<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-							<strong>ATENTIONARE !</strong><br>CNP RL incorect
-						</div>
-					</div>
--->
-				</div>
+				<div class="col-sm-1 p-3"></div>
 			</div>
 			<div class="row">
 				<div class="col-sm-10 p-3"></div>
 				<div class="col-sm-1 p-3">
-					<button type="submit" class="btn btn-outline-info">ADAUGARE</button>
+					<div th:if="${xcmdExt}"> 
+						<button type="submit" class="btn btn-outline-info">MODIFICARE</button>
+					</div>
+					<div th:unless="${xcmdExt}">
+						<button type="submit" class="btn btn-outline-info">ADAUGARE</button>
+					</div>
 				</div>
 				<div class="col-sm-1 p-3"></div>
 			</div>
 		</form>
 	</div>
-<!--
-	<script>
-		function myForme() {
-			document.getElementById("forme").submit() ;
-		}
-	</script>
--->
 </body>
 </html>

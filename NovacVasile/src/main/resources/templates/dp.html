@@ -12,18 +12,30 @@
 <body class="bg-dark">
 	<span th:insert="~{navbar :: copy}"></span>
 	<div class="container-fluid">
-		<form action="#" th:action="@{/addDispozitiePrimar}" th:object="${dispozitiePrimar}" method="post">
+		<form action="#" th:action="@{/errDispozitiePrimar}" th:object="${dispozitiePrimar}" method="post" id="forme"></form>
+		<form action="#" th:action="@{/addDispozitiePrimar}" th:object="${dispozitiePrimar}" method="post" id="xforme">
 			<div class="row">
-				<div class="col-sm-4 p-3"></div>
+				<div class="col-sm-2 p-3"></div>
+				<div class="col-sm-2 p-3">
+					<span th:insert="~{idrl :: copy}"></span>
+				</div>
 				<div class="col-sm-3 p-3">
 					<fieldset class="border border-warning p-2">
 					<legend class="bg-warning text-danger p-1">Dispozitie primar:</legend>
+					<div th:if="${nrView}">
+						<div class="form-floating mb-1 mt-1">
+    	    				<input type="text" class="form-control text-success" id="nrd" placeholder="Numar" name="nrd" value="" autofocus required form="forme" onchange="forme.submit()" th:field="*{nrDispozitie}">
+        					<label for="nrd" class="form-label text-danger"><b>Numar:</b></label>
+      					</div>
+					</div>
+					<div th:unless="${nrView}">
+						<div class="form-floating mb-1 mt-1">
+        					<input type="text" class="form-control text-success" id="nrd" placeholder="Numar" name="nrd" value="" required th:field="*{nrDispozitie}">
+        					<label for="nrd" class="form-label text-danger"><b>Numar:</b></label>
+      					</div>
+					</div>
 					<div class="form-floating mb-1 mt-1">
-        				<input type="text" class="form-control text-success" id="nrd" placeholder="Numar" name="nrd" value="" autofocus required th:field="*{nrDispozitie}">
-        				<label for="nrd" class="form-label text-danger"><b>Numar:</b></label>
-      				</div>
-					<div class="form-floating mb-1 mt-1">
-        				<input type="text" class="form-control text-success" id="data" placeholder="Data emiterii" name="data" value="" required th:field="*{dataDispozitie}">
+        				<input type="text" class="form-control text-success" id="data" placeholder="Data emiterii" name="data" value="" pattern="[0-3]{2}-[0-2]{2}-[0-9]{4}" oninvalid="this.setCustomValidity('Format: ZZ-LL-AAAA');" oninput="setCustomValidity('');" autofocus th:field="*{dataDispozitie}">
         				<label for="data" class="form-label text-danger"><b>Data emiterii:</b></label>
       				</div>
 					<div class="form-floating mb-1 mt-1">
@@ -33,7 +45,7 @@
         				<label for="categ" class="form-label text-danger"><b>Categorie:</b></label>
       				</div>
 					<div class="form-floating mb-1 mt-1">
-	       				<input type="text" class="form-control text-success" id="div" placeholder="Data intrare vigoare" name="div" value="" required th:field="*{dataIntrareVigoare}">
+	       				<input type="text" class="form-control text-success" id="div" placeholder="Data intrare vigoare" name="div" value="" pattern="[0-3]{2}-[0-2]{2}-[0-9]{4}" oninvalid="this.setCustomValidity('Format: ZZ-LL-AAAA');" oninput="setCustomValidity('');" th:field="*{dataIntrareVigoare}">
         				<label for="div" class="form-label text-danger"><b>Data intrare vigoare:</b></label>
       				</div>
 <!-- 
@@ -48,9 +60,15 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-10 p-3"></div>
-				<div class="col-sm-2 p-3">
-					<button type="submit" class="btn btn-outline-info">ADAUGARE</button>
+				<div class="col-sm-1 p-3">
+					<div th:if="${xcmdExt}"> 
+						<button type="submit" class="btn btn-outline-info">MODIFICARE</button>
+					</div>
+					<div th:unless="${xcmdExt}">
+						<button type="submit" class="btn btn-outline-info">ADAUGARE</button>
+					</div>
 				</div>
+				<div class="col-sm-1 p-3"></div>
 			</div>
 		</form>
 	</div>

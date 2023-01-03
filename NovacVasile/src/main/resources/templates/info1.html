@@ -9,7 +9,7 @@
 			<label for="sc" class="form-label text-danger"><b>Stare Civila:</b></label>
 		</div>
 		<div class="form-floating mb-1 mt-1">
-			<input type="text" class="form-control text-success" id="dn" placeholder="Data Nastere" name="dn" value="" required th:field="*{dataNastere}">
+			<input type="text" class="form-control text-success" id="dn" placeholder="Data Nastere" name="dn" value="" pattern="[0-3]{2}-[0-2]{2}-[0-9]{4}" oninvalid="this.setCustomValidity('Format: ZZ-LL-AAAA');" oninput="setCustomValidity('');" required th:field="*{dataNastere}">
 			<label for="dn" class="form-label text-danger"><b>Data Nastere:</b></label>
 		</div>
 		<div class="form-floating mb-1 mt-1">

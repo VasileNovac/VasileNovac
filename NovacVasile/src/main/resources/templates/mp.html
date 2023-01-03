@@ -12,18 +12,33 @@
 <body class="bg-dark">
 	<span th:insert="~{navbar :: copy}"></span>
 	<div class="container-fluid">
-		<form action="#" th:action="@{/addMasculinParinte}" th:object="${masculinParinte}" method="post">
+		<form action="#" th:action="@{/errMasculinParinte}" th:object="${masculinParinte}" method="post" id="forme"></form>
+		<form action="#" th:action="@{/addMasculinParinte}" th:object="${masculinParinte}" method="post" id="xforme">
 			<div class="row">
-				<div class="col-sm-1 p-3"></div>
-				<div class="col-sm-3 p-3">
+				<div class="col-sm-2 p-3">
 					<div th:if="${erori}">
 						<div class="alert alert-danger alert-dismissible">
-							<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+							<button type="button" class="btn" data-bs-dismiss="alert"></button>
 							<strong>ATENTIONARE !</strong><br>CNP incorect
 						</div>
 					</div>
+					<span th:insert="~{idrl :: copy}"></span>
+				</div>
+				<div class="col-sm-3 p-3">
 					<fieldset class="border border-warning p-2">
 						<legend class="bg-warning text-danger p-1">Parinte genul Masculin ( TATA )</legend>
+					<div th:if="${erori} or ${nrView}">
+						<div class="form-floating mb-1 mt-1">
+    						<input type="text" class="form-control text-success" id="cnp" placeholder="CNP" name="cnp" value="" pattern="[0-9]{13}" autofocus required form="forme" onchange="forme.submit()" th:field="*{cnp}">
+    						<label for="cnp" class="form-label text-danger"><b>CNP:</b></label>
+    					</div>
+					</div>
+					<div th:unless="${erori} or ${nrView}">
+						<div class="form-floating mb-1 mt-1">
+    						<input type="text" class="form-control text-success" id="cnp" placeholder="CNP" name="cnp" value="" pattern="[0-9]{13}" required th:field="*{cnp}">
+    						<label for="cnp" class="form-label text-danger"><b>CNP:</b></label>
+    					</div>
+					</div>
 						<div>
 	  						<span th:insert="~{numpre :: copy}"></span>
 						</div>
@@ -46,22 +61,19 @@
 -->
       				</fieldset>
       			</div>
-				<div class="col-sm-2 p-3">
-<!--
-					<div th:if="${erori}">
-						<div class="alert alert-danger alert-dismissible">
-							<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-							<strong>ATENTIONARE !</strong><br>CNP incorect
-						</div>
-					</div>
--->
-				</div>
+				<div class="col-sm-1 p-3"></div>
 			</div>
 			<div class="row">
 				<div class="col-sm-10 p-3"></div>
-				<div class="col-sm-2 p-3">
-					<button type="submit" class="btn btn-outline-info">ADAUGARE</button>
+				<div class="col-sm-1 p-3">
+					<div th:if="${xcmdExt}"> 
+						<button type="submit" class="btn btn-outline-info">MODIFICARE</button>
+					</div>
+					<div th:unless="${xcmdExt}">
+						<button type="submit" class="btn btn-outline-info">ADAUGARE</button>
+					</div>
 				</div>
+				<div class="col-sm-1 p-3"></div>
 			</div>
 		</form>
 	</div>

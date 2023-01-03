@@ -19,7 +19,7 @@
    				<label for="nr" class="form-label text-danger"><b>Numar:</b></label>
 			</div>
 			<div class="form-floating mb-1 mt-1">
-   				<input type="text" class="form-control text-success" id="de" placeholder="Data Expirare" name="de" value="" th:field="*{dataExpActId}">
+   				<input type="text" class="form-control text-success" id="de" placeholder="Data Expirare" name="de" value="" pattern="[0-3]{2}-[0-2]{2}-[0-9]{4}" oninvalid="this.setCustomValidity('Format: ZZ-LL-AAAA');" oninput="setCustomValidity('');" th:field="*{dataExpActId}">
    				<label for="de" class="form-label text-danger"><b>Data Expirare:</b></label>
 			</div>
 		</fieldset>

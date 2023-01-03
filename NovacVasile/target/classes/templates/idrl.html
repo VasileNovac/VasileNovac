@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<div th:fragment="copy">
+		<fieldset class="border border-warning p-2">
+			<legend class="bg-warning text-danger p-1">Reprezentant Legal</legend>
+			<div class="border text-danger bg-light p-1 rounded-2 mw-100 mb-1 mt-1">
+				<span class="text-dark"><b>CNP RL: </b></span>
+   				<p th:text="${tcnp}"></p>
+			</div>
+			<div class="border text-danger bg-light p-1 rounded-2 mw-100 mb-1 mt-1">
+				<span class="text-dark"><b>Nume RL: </b></span>
+   				<p th:text="${tnume}"></p>
+			</div>
+			<div class="border text-danger bg-light p-1 rounded-2 mw-100 mb-1 mt-1">
+				<span class="text-dark"><b>Prenume RL: </b></span>
+   				<p th:text="${tprenume}"></p>
+			</div>
+		</fieldset>
+	</div>
+</body>
+</html>

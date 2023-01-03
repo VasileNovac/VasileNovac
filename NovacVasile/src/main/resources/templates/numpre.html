@@ -2,12 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
 	<div th:fragment="copy">
-		<div class="form-floating mb-1 mt-1">
+<!-- 
+ 		<div class="form-floating mb-1 mt-1">
     		<input type="text" class="form-control text-success" id="cnp" placeholder="CNP" name="cnp" value="" autofocus required th:field="*{cnp}">
     		<label for="cnp" class="form-label text-danger"><b>CNP:</b></label>
     	</div>
+-->
 		<div class="form-floating mb-1 mt-1">
-    		<input type="text" class="form-control text-success" id="nume" placeholder="Nume" name="nume" value="" required th:field="*{nume}">
+    		<input type="text" class="form-control text-success" id="nume" placeholder="Nume" name="nume" value="" autofocus required th:field="*{nume}">
     		<label for="nume" class="form-label text-danger"><b>Nume:</b></label>
     	</div>
 		<div class="form-floating mb-1 mt-1">

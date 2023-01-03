@@ -16,9 +16,8 @@ public class MembriFamilie {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	private String  cnp, nume, prenume ;
-	private String stareCivila, actId, serieActId, nrActId, dataExpActId, dataNastere, cetatenie, situatieScolara, situatieProfesionala, cuDizabilitati, beneficiatAlteDreptSociale ;
+	private String stareCivila, actId, serieActId, nrActId, dataExpActId, dataNastere, cetatenie, situatieScolara, situatieProfesionala, cuDizabilitati, beneficiatAlteDreptSociale, categDreptSociale ;
 	private int venitTotalUltimaLuna ;
-	private String categDreptSociale ;
 	private static ArrayList<String> stareCivilaList ;
 	private static ArrayList<String> situatieScolaraList ;
 	private static ArrayList<String> situatieProfesionalaList ;
@@ -99,25 +98,26 @@ public class MembriFamilie {
 		if ( xcnp.length() == 13 ) {
 			ret1 = true ;
 		
-		// verificare ca toate caracterele cnp sunt numerice
+		// verificare toate caracterele cnp sunt numerice
 			for ( int j = 0 ; j < xcnp.length() ; j++) {
-				if (Pattern.matches("[0-9]", Character.toString(xcnp.charAt(j))) && ret2 == true ) { }
+				if (Pattern.matches("[0-9]", Character.toString(xcnp.charAt(j))) && ret2 == true ) {
+				}
 				else {
 					ret2 = false ;
 				}
 			}
 
-		// verificare ca luna cnp este cuprinsa intre 1 si 12 
+		// verificare luna cnp este cuprinsa intre 1 si 12 
 			if (Integer.valueOf(Character.toString(xcnp.charAt(3)) + Character.toString(xcnp.charAt(4))) < 13 && Integer.valueOf(Character.toString(xcnp.charAt(3)) + Character.toString(xcnp.charAt(4))) > 0 ) {
 				ret3 = true ;
 			}
 		
-		// verificare ca ziua cnp este cuprinsa intre 1 si 31
+		// verificare ziua cnp este cuprinsa intre 1 si 31
 			if (Integer.valueOf(Character.toString(xcnp.charAt(5)) + Character.toString(xcnp.charAt(6))) < 32 && Integer.valueOf(Character.toString(xcnp.charAt(5)) + Character.toString(xcnp.charAt(6))) > 0 ) {
 				ret4 = true ;
 			}
 
-		// verificare ca cifra de control cnp este corecta
+		// verificare cifra de control cnp
 			int restCNP = ( 2*Integer.valueOf(Character.toString(xcnp.charAt(0))) + 
 							7*Integer.valueOf(Character.toString(xcnp.charAt(1))) + 
 							9*Integer.valueOf(Character.toString(xcnp.charAt(2))) + 
@@ -187,7 +187,12 @@ public class MembriFamilie {
 		categDreptSocialeList.add("alocatie stat");
 		categDreptSocialeList.add("ajutor social");
 		categDreptSocialeList.add("alocatie pentru sustinerea familiei");
-		categDreptSocialeList.add("ajutor pentru incalzire locuintei cu: energie termica, gaze naturale, energie electrica, lemne, carbuni");
+		categDreptSocialeList.add("indemnizatie crestere copil") ;
+		categDreptSocialeList.add("ajutor incalzire locuinta cu energie electrica") ;
+		categDreptSocialeList.add("ajutor supliment pentru energie electrica") ;
+		categDreptSocialeList.add("ajutor incalzire locuinta cu energie termica") ;
+		categDreptSocialeList.add("ajutor incalzire locuinta cu gaze naturale") ;
+		categDreptSocialeList.add("ajutor incalzire locuinta cu lemne, carbuni") ;
 		return categDreptSocialeList ;
 	}
 
